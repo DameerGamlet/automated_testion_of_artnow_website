@@ -1,0 +1,43 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // libraries
+    implementation libs.guava
+    implementation libs.selenium
+    // testing
+//    testImplementation libs.junit5.api
+//    testRuntimeOnly libs.junit5.engine
+    testImplementation libs.testng
+    // reporting
+    implementation libs.allure.testng
+    implementation libs.allure.commons
+    // logging
+    implementation libs.slf4j
+    testImplementation libs.reload4j
+    // lombok
+    implementation libs.lombok
+    testImplementation libs.lombok
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+}
+
+
+application {
+    mainClass = 'ssh.task.App'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
