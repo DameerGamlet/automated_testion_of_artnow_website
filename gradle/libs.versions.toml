@@ -6,14 +6,18 @@ junit5 = "5.10.1"
 slf4j = "2.0.12"
 lombok = "1.18.24"
 selenium = "4.17.0"
+webdrivermanager = "5.7.0"
 
 [libraries]
 # libraries
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
-selenium = { module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium" }
+selenium-java = { module = "org.seleniumhq.selenium:selenium-java", version.ref = "selenium" }
+selenium-api = { module = "org.seleniumhq.selenium:selenium-api", version.ref = "selenium" }
+selenium-firefox = { module = "org.seleniumhq.selenium:selenium-firefox-driver", version.ref = "selenium" }
+selenium-chrome = { module = "org.seleniumhq.selenium:selenium-chrome-driver", version.ref = "selenium" }
+webdrivermanager = { module = "io.github.bonigarcia:webdrivermanager", version.ref = "webdrivermanager" }
+
 # testing
-#junit5-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
-#junit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
 testng = { module = "org.testng:testng", version.ref = "testng" }
 # reporting
 #allure-junit5 = { module = "io.qameta.allure:allure-junit5", version.ref = "allure-junit5" }

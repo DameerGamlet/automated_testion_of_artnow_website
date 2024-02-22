@@ -4,7 +4,7 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
@@ -15,29 +15,29 @@ repositories {
 dependencies {
     // libraries
     implementation libs.guava
-    implementation libs.selenium
+    implementation libs.selenium.java
+    implementation libs.selenium.api
+    implementation libs.selenium.firefox
+//    implementation libs.selenium.chrome
+    implementation libs.webdrivermanager;
+
+
     // testing
-//    testImplementation libs.junit5.api
-//    testRuntimeOnly libs.junit5.engine
     testImplementation libs.testng
     // reporting
-    implementation libs.allure.testng
-    implementation libs.allure.commons
+//    implementation libs.allure.testng
+//    implementation libs.allure.commons
     // logging
-    implementation libs.slf4j
+    testImplementation libs.slf4j
     testImplementation libs.reload4j
     // lombok
     implementation libs.lombok
     testImplementation libs.lombok
     compileOnly libs.lombok
     annotationProcessor libs.lombok
-}
-
-
-application {
-    mainClass = 'ssh.task.App'
+    testAnnotationProcessor libs.lombok
 }
 
 tasks.named('test') {
-    useJUnitPlatform()
+    useTestNG()
 }

@@ -10,8 +10,8 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 abstract class BasePage {
-    private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 10;
-    private static final int DEFAULT_TIME_OF_SECONDS = 1;
+    private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 100;
+    private static final int DEFAULT_TIME_OF_SECONDS = 10;
 
     protected WebDriver driver;
 
