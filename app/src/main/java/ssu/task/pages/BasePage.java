@@ -1,5 +1,6 @@
 package ssu.task.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -7,11 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-abstract class BasePage {
+public abstract class BasePage {
     private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 100;
-    private static final int DEFAULT_TIME_OF_SECONDS = 10;
+    private static final int DEFAULT_TIME_OF_SECONDS = 1;
 
     protected WebDriver driver;
 
@@ -25,9 +27,19 @@ abstract class BasePage {
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
-    protected void waitFotElementEnable(WebElement element) {
+    protected void waitForAllElementsTimeoutSeconds(List<WebElement> elements) {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.visibilityOfAllElements(elements));
+    }
+
+    protected void waitForElementEnable(WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    protected void waitForElementToBePresent(By locator) {
+        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
     protected void timeSleep() {

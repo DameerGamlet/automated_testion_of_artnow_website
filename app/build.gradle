@@ -21,12 +21,11 @@ dependencies {
 //    implementation libs.selenium.chrome
     implementation libs.webdrivermanager;
 
-
     // testing
     testImplementation libs.testng
     // reporting
-//    implementation libs.allure.testng
-//    implementation libs.allure.commons
+    implementation libs.allure.testng
+    implementation libs.allure.commons
     // logging
     testImplementation libs.slf4j
     testImplementation libs.reload4j
@@ -38,6 +37,9 @@ dependencies {
     testAnnotationProcessor libs.lombok
 }
 
-tasks.named('test') {
-    useTestNG()
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/testng.xml'
+    }
 }
