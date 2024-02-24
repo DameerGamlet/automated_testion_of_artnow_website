@@ -18,7 +18,7 @@ dependencies {
     implementation libs.selenium.java
     implementation libs.selenium.api
     implementation libs.selenium.firefox
-//    implementation libs.selenium.chrome
+    implementation libs.selenium.chrome
     implementation libs.webdrivermanager;
 
     // testing

@@ -25,20 +25,8 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath = "//div[@id='applymsg']")
     private WebElement applyGenreButton;
 
-    private final String ART_CONTAINER_XPATH = "//*[@id='sa_container']";
-    private final String ART_LIST_XPATH = "//*[@id='sa_container']/div[@class='post']";
-
     @FindBy(xpath = "//*[@id='sa_container']/div[@class='post']")
     private List<WebElement> pictureList;
-
-    private final String ART_AUTHOR_AND_NAME_XPATH = ".//div[@class='ssize']";
-
-    @Step("Click on genre 'show more' button")
-    public CatalogPage clickOnGenreShowMoreButton() {
-        waitForElementEnable(showMoreOnGenreButton);
-        showMoreOnGenreButton.click();
-        return this;
-    }
 
     @Step("Select picture genre")
     public void selectPictureGenre(String genre) {
@@ -60,28 +48,5 @@ public class CatalogPage extends BasePage {
         }
 
         return false;
-    }
-
-    @Step("Click on catalog item by name")
-    public CatalogPage clickOnCatalogItemByName(String catalogItemName) {
-        List<WebElement> arts = driver.findElements(By.xpath(ART_LIST_XPATH));
-        for (WebElement art : arts) {
-            WebElement authorAndName = art.findElement(By.xpath(ART_AUTHOR_AND_NAME_XPATH));
-            if (authorAndName.getText().contains(catalogItemName)) {
-                waitForElementEnable(authorAndName);
-                authorAndName.click();
-                break;
-            }
-        }
-        return this;
-    }
-
-    @Step("Click on catalog item by number")
-    public CatalogPage clickOnCatalogItemByNumber(int number) {
-        List<WebElement> arts = driver.findElements(By.xpath(ART_LIST_XPATH));
-        WebElement art = arts.get(number);
-        waitForElementEnable(art);
-        art.click();
-        return this;
     }
 }

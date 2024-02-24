@@ -22,11 +22,6 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    protected void waitForElementTimeoutSeconds(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
-                .until(ExpectedConditions.visibilityOf(element));
-    }
-
     protected void waitForAllElementsTimeoutSeconds(List<WebElement> elements) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.visibilityOfAllElements(elements));
@@ -35,11 +30,6 @@ public abstract class BasePage {
     protected void waitForElementEnable(WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    protected void waitForElementToBePresent(By locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
-                .until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
     protected void timeSleep() {

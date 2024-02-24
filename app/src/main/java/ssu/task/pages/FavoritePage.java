@@ -2,27 +2,31 @@ package ssu.task.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import io.qameta.allure.Param;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class FavoritePage extends BasePage {
-    public FavoritePage(WebDriver driver) {
-        super(driver);
-    }
-
     @FindBy(css = "img[alt='Избранное']")
     private WebElement favoriteButton;
 
     @FindBy(css = "div[class='post']")
     private List<WebElement> favoritePictures;
 
+    public FavoritePage(WebDriver driver) {
+        super(driver);
+    }
+
+    @Step("Open the favorite list page")
     public void openFavoriteListPage() {
         waitForElementEnable(favoriteButton);
         favoriteButton.click();
     }
 
-    public boolean checkPictureInFavorite(String pictureName) {
+    @Step("Check if the picture with name '{pictureName}' is in the favorites")
+    public boolean checkPictureInFavorite(@Param("pictureName") String pictureName) {
         waitForAllElementsTimeoutSeconds(favoritePictures);
 
         if (!favoritePictures.isEmpty()) {

@@ -1,5 +1,6 @@
 package ssu.task.pages;
 
+import io.qameta.allure.Param;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,10 +14,6 @@ import static ssu.task.utils.PictureServiceSupport.getPictureName;
 import static ssu.task.utils.PictureServiceSupport.getPicturePrice;
 
 public class PicturePage extends BasePage {
-    public PicturePage(WebDriver webDriver) {
-        super(webDriver);
-    }
-
     @FindBy(xpath = "//*[@id='sa_container']/div[@class='post']")
     private List<WebElement> pictureList;
 
@@ -28,8 +25,12 @@ public class PicturePage extends BasePage {
     @FindBy(css = "#CartButton1127052")
     private WebElement basketButton;
 
-    @Step("Check catalog item name")
-    public boolean isPictureByNameExists(String pictureName) {
+    public PicturePage(WebDriver webDriver) {
+        super(webDriver);
+    }
+
+    @Step("Check if a picture with name '{pictureName}' exists")
+    public boolean isPictureByNameExists(@Param("pictureName") String pictureName) {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         for (var picture : pictureList) {
@@ -41,7 +42,8 @@ public class PicturePage extends BasePage {
         return false;
     }
 
-    public void openPictureInfo(String pictureName) {
+    @Step("Open detailed information for the picture with name '{pictureName}'")
+    public void openPictureInfo(@Param("pictureName") String pictureName) {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         for (WebElement picture : pictureList) {
@@ -52,7 +54,8 @@ public class PicturePage extends BasePage {
         }
     }
 
-    public boolean checkStylePicture(String style) {
+    @Step("Check if the style of the picture is '{style}'")
+    public boolean checkStylePicture(@Param("style") String style) {
         waitForAllElementsTimeoutSeconds(pictureInfo);
 
         for (WebElement picture : pictureInfo) {
@@ -63,7 +66,8 @@ public class PicturePage extends BasePage {
         return false;
     }
 
-    public boolean checkContainsRequestInName(String request) {
+    @Step("Check if the name of the picture contains the request '{request}'")
+    public boolean checkContainsRequestInName(@Param("request") String request) {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         WebElement picture = null;
@@ -77,7 +81,8 @@ public class PicturePage extends BasePage {
         return pictureName.contains(request);
     }
 
-    public String putInFavoriteSpecificPicture(int index) {
+    @Step("Put the picture at index {index} into favorites")
+    public String putInFavoriteSpecificPicture(@Param("index") int index) {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         WebElement picture = null;
@@ -93,7 +98,8 @@ public class PicturePage extends BasePage {
         return getPictureName(picture, "ssize");
     }
 
-    public Picture putInBasketSpecificPicture(int index) {
+    @Step("Put the picture at index {index} into the basket")
+    public Picture putInBasketSpecificPicture(@Param("index") int index) {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         WebElement picture = null;

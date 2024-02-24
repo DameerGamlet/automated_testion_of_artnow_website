@@ -1,5 +1,8 @@
 package ssu.task.models;
 
+import lombok.Getter;
+
+@Getter
 public enum BrowsersSupport {
     FIREFOX("firefox"),
     CHROME("chrome");
@@ -8,10 +11,6 @@ public enum BrowsersSupport {
 
     BrowsersSupport(String browserName) {
         this.browserName = browserName;
-    }
-
-    public String getBrowserName() {
-        return browserName;
     }
 }
 
