@@ -68,4 +68,10 @@
 
 ## Результаты
 
-![img.png](resources/images/results.png)
+### Результаты выполнения
+
+![result_tests.png](resources%2Fimages%2Fresult_tests.png)
+
+### Видео-демонстрация
+
+![result_test_run.gif](resources%2Fimages%2Fresult_test_run.gif)

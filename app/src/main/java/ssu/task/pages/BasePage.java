@@ -1,6 +1,5 @@
 package ssu.task.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -15,21 +14,25 @@ public abstract class BasePage {
     private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 100;
     private static final int DEFAULT_TIME_OF_SECONDS = 1;
 
-    protected WebDriver driver;
+    private final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+
+    protected WebDriver getDriver() {
+        return driverThreadLocal.get();
+    }
 
     public BasePage(WebDriver driver) {
-        this.driver = driver;
+        driverThreadLocal.set(driver);
         PageFactory.initElements(driver, this);
     }
 
     protected void waitForAllElementsTimeoutSeconds(List<WebElement> elements) {
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
+        new WebDriverWait(getDriver(), Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
                 .until(ExpectedConditions.visibilityOfAllElements(elements));
     }
 
     protected void waitForElementEnable(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
-                .until(ExpectedConditions.elementToBeClickable(element));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.visibilityOf(element));
     }
 
     protected void timeSleep() {

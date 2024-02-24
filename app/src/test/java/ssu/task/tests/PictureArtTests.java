@@ -20,9 +20,9 @@ public class PictureArtTests extends BaseTest {
     public void VerifyPresenceOfCityscapePaintingInEmbroideredPictures() {
         log.info("Starting test: Navigating to 'Вышитые картины', searching for 'Городской пейзаж' genre, and verifying the presence of 'Трамвайный путь'.");
 
-        HomePage home = new HomePage(driver);
-        CatalogPage catalog = new CatalogPage(driver);
-        PicturePage picture = new PicturePage(driver);
+        HomePage home = new HomePage(getDriver());
+        CatalogPage catalog = new CatalogPage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
 
         home.clickShowMoreOnCategory();
         home.clickMenuItem("Вышитые картины");
@@ -41,9 +41,9 @@ public class PictureArtTests extends BaseTest {
         log.info("Starting test: Navigate to 'Вышитые картины', search for 'Городской пейзаж', " +
                 "open details of painting 'Трамвайные пути', and verify its style - 'Реализм'.");
 
-        HomePage home = new HomePage(driver);
-        CatalogPage catalog = new CatalogPage(driver);
-        PicturePage picture = new PicturePage(driver);
+        HomePage home = new HomePage(getDriver());
+        CatalogPage catalog = new CatalogPage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
 
         home.clickShowMoreOnCategory();
         home.clickMenuItem("Вышитые картины");
@@ -66,9 +66,9 @@ public class PictureArtTests extends BaseTest {
     public void verifyAddingFirstBatikPictureToFavorites() {
         log.info("Starting test: Verify adding the first 'Батик' picture to Favorites");
 
-        HomePage home = new HomePage(driver);
-        PicturePage picture = new PicturePage(driver);
-        FavoritePage favoritePage = new FavoritePage(driver);
+        HomePage home = new HomePage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
+        FavoritePage favoritePage = new FavoritePage(getDriver());
 
         home.clickShowMoreOnCategory();
         home.clickMenuItem("Батик");
@@ -88,8 +88,8 @@ public class PictureArtTests extends BaseTest {
     public void verifyTitleOfFirstPaintingInSearchResultsForGiraffe() {
         log.info("Starting test: Searching for 'Жираф' in the search bar and verifying that the title of the first painting contains the word 'Жираф'.");
 
-        HomePage home = new HomePage(driver);
-        PicturePage picture = new PicturePage(driver);
+        HomePage home = new HomePage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
 
         String request = "Жираф";
 
@@ -107,9 +107,9 @@ public class PictureArtTests extends BaseTest {
     public void verifyAddingFirstJewelryItemToCartAndPriceConsistency() {
         log.info("Starting test: Adding the first jewelry item to the cart in the 'Ювелирное искусство' section and verifying its presence and unchanged price.");
 
-        HomePage home = new HomePage(driver);
-        PicturePage picture = new PicturePage(driver);
-        BasketPage basket = new BasketPage(driver);
+        HomePage home = new HomePage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
+        BasketPage basket = new BasketPage(getDriver());
 
         home.clickShowMoreOnCategory();
         home.clickMenuItem("Ювелирное искусство");
@@ -129,9 +129,9 @@ public class PictureArtTests extends BaseTest {
     public void verifyAddingFirstJewelryItemToCartAndPriceConsistencyBadResult() {
         log.info("Starting test: Adding the first jewelry item to the cart in the 'Ювелирное искусство' section and verifying its presence and unchanged price.");
 
-        HomePage home = new HomePage(driver);
-        PicturePage picture = new PicturePage(driver);
-        BasketPage basket = new BasketPage(driver);
+        HomePage home = new HomePage(getDriver());
+        PicturePage picture = new PicturePage(getDriver());
+        BasketPage basket = new BasketPage(getDriver());
 
         home.clickShowMoreOnCategory();
         home.clickMenuItem("Ювелирное искусство");
