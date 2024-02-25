@@ -36,7 +36,7 @@ public class BasketPage extends BasePage {
     public boolean checkPictureInBasket(Picture picture) {
         waitForAllElementsTimeoutSeconds(basketPictures);
 
-        String name = picture.getName();
+        String name = picture.name();
 
         if (!basketPictures.isEmpty()) {
             for (var pic : basketPictures) {
@@ -45,7 +45,7 @@ public class BasketPage extends BasePage {
 
                 if (pic.getText().contains(name) || name.contains(pictureName)) {
                     long picPrice = getPicturePrice(pic);
-                    if (picPrice == picture.getPrice()) {
+                    if (picPrice == picture.price()) {
                         return true;
                     }
                 }

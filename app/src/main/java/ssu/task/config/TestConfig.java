@@ -3,7 +3,6 @@ package ssu.task.config;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,9 +19,6 @@ public record TestConfig(
     static final String CHROME_VERSION;
 
     static {
-//        WebDriverManager.firefoxdriver().setup();
-//        WebDriverManager.chromedriver().setup();
-
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
         try {
             TestConfig config = objectMapper.readValue(

@@ -1,7 +1,6 @@
 package ssu.task.pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,8 +42,9 @@ public class CatalogPage extends BasePage {
         waitForAllElementsTimeoutSeconds(pictureList);
 
         for (var picture : pictureList) {
-            if (picture.getText().contains(catalogItemName))
+            if (picture.getText().contains(catalogItemName)) {
                 return true;
+            }
         }
 
         return false;

@@ -1,15 +1,21 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="suite" parallel="tests" thread-count="4" verbose="4">
-    <test name="FirefoxTest" thread-count="2">
+    <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="ssu.task.tests.PictureArtTests"/>
+            <class name="ssu.task.tests.PictureCartPriceConsistencyTest"/>
+            <class name="ssu.task.tests.PictureSearchResultsTest"/>
+            <class name="ssu.task.tests.PictureStyleMatchingAvailabilityTest"/>
+            <class name="ssu.task.tests.PictureToFavoriteTests"/>
         </classes>
     </test>
-    <test name="ChromeTest" thread-count="2">
+    <test name="ChromeTest">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="ssu.task.tests.PictureArtTests"/>
+            <class name="ssu.task.tests.PictureCartPriceConsistencyTest"/>
+            <class name="ssu.task.tests.PictureSearchResultsTest"/>
+            <class name="ssu.task.tests.PictureStyleMatchingAvailabilityTest"/>
+            <class name="ssu.task.tests.PictureToFavoriteTests"/>
         </classes>
     </test>
 </suite>

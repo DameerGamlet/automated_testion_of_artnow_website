@@ -40,7 +40,6 @@ public class HomePage extends BasePage {
         searchButton.click();
     }
 
-
     @Step("Click on the menu item: {menuItemName}")
     public void clickMenuItem(String menuItemName) {
         WebElement menuItem = FindElementSupport.findByLink(menuItemElement, menuItemName);
