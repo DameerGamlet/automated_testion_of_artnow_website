@@ -1,5 +1,6 @@
 package ssu.task.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,11 +26,13 @@ public class BasketPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open the basket from the modal page")
     public void openBasketFromModalPage() {
         waitForElementEnable(basketModalButton);
         basketModalButton.click();
     }
 
+    @Step("Check that the picture {picture.getName()} is in the basket with the price {picture.getPrice()}")
     public boolean checkPictureInBasket(Picture picture) {
         waitForAllElementsTimeoutSeconds(basketPictures);
 

@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="suite" parallel="tests">
-    <test name="FirefoxTest" thread-count="3">
+<suite name="suite" parallel="tests" thread-count="4" verbose="4">
+    <test name="FirefoxTest" thread-count="2">
         <parameter name="browser" value="firefox"/>
         <classes>
             <class name="ssu.task.tests.PictureArtTests"/>
         </classes>
     </test>
-    <test name="ChromeTest" thread-count="3">
+    <test name="ChromeTest" thread-count="2">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="ssu.task.tests.PictureArtTests"/>

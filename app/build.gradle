@@ -15,6 +15,10 @@ repositories {
 dependencies {
     // libraries
     implementation libs.guava
+    implementation libs.jackson.dataformat.yaml
+    implementation libs.jackson.databind.yaml
+    testImplementation libs.jackson.dataformat.yaml
+    // selenium
     implementation libs.selenium.java
     implementation libs.selenium.api
     implementation libs.selenium.firefox
@@ -25,7 +29,12 @@ dependencies {
     testImplementation libs.testng
     // reporting
     implementation libs.allure.testng
+    testImplementation libs.allure.testng
     implementation libs.allure.commons
+    testImplementation libs.allure.commons
+    testImplementation libs.allure.assertj
+    testImplementation libs.allure.commandLine
+    testImplementation libs.allure.assured
     // logging
     testImplementation libs.slf4j
     testImplementation libs.reload4j
@@ -39,6 +48,7 @@ dependencies {
 
 test {
     useTestNG() {
+        outputDirectory = file("testng-output")
         useDefaultListeners = true
         suites 'src/test/testng.xml'
     }
