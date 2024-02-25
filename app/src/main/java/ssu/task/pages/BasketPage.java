@@ -4,6 +4,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
+import ssu.task.config.AllureListener;
 import ssu.task.models.Picture;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 import static ssu.task.utils.PictureServiceSupport.getPictureName;
 import static ssu.task.utils.PictureServiceSupport.getPicturePrice;
 
+@Listeners(AllureListener.class)
 public class BasketPage extends BasePage {
 
     @FindBy(css = "img[alt='Избранное']")

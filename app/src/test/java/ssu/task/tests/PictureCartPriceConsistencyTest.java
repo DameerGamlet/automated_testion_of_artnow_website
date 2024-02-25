@@ -4,15 +4,14 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import ssu.task.config.BaseTest;
 import ssu.task.models.Picture;
 import ssu.task.pages.BasketPage;
 import ssu.task.pages.HomePage;
 import ssu.task.pages.PicturePage;
+
+import java.io.ByteArrayInputStream;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -66,17 +65,12 @@ public class PictureCartPriceConsistencyTest extends BaseTest {
         try {
             assertFalse(isExistAndEqualPrice);
         } catch (AssertionError e) {
-            captureScreenshot(getDriver());
+            byte[] bytes = captureScreenshot(getDriver());
+            Allure.addAttachment("Failure screen", new ByteArrayInputStream(bytes));
             Allure.addAttachment("Failure details", "Тест завершился неудачей: " + e.getMessage());
             throw e;
         }
     }
-
-    @Attachment(value = "Failure screenshot", type = "image/png")
-    public static byte[] captureScreenshot(WebDriver driver) {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
-
 }
 
 

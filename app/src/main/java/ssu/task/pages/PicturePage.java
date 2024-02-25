@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
+import ssu.task.config.AllureListener;
 import ssu.task.models.Picture;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 import static ssu.task.utils.PictureServiceSupport.getPictureName;
 import static ssu.task.utils.PictureServiceSupport.getPicturePrice;
 
+@Listeners(AllureListener.class)
 public class PicturePage extends BasePage {
     @FindBy(xpath = "//*[@id='sa_container']/div[@class='post']")
     private List<WebElement> pictureList;

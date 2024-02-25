@@ -4,11 +4,14 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
+import ssu.task.config.AllureListener;
 
 import java.util.List;
 
 import static ssu.task.utils.FindElementSupport.findByLabel;
 
+@Listeners(AllureListener.class)
 public class CatalogPage extends BasePage {
 
     public CatalogPage(WebDriver webDriver) {

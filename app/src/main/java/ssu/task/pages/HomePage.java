@@ -5,10 +5,13 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
+import ssu.task.config.AllureListener;
 import ssu.task.utils.FindElementSupport;
 
 import java.util.List;
 
+@Listeners(AllureListener.class)
 public class HomePage extends BasePage {
 
     @FindBy(xpath = "//div[@id='left_container']//li[@class='menu-group gids']")

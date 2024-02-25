@@ -10,6 +10,7 @@ import ssu.task.pages.PicturePage;
 import static org.testng.Assert.assertTrue;
 
 @Slf4j
+//@Listeners(AllureListener.class)
 public class PictureToFavoriteTests extends BaseTest {
 
     /* Тест 3

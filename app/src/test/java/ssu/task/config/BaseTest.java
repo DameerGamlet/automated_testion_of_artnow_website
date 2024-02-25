@@ -1,7 +1,10 @@
 package ssu.task.config;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Attachment;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,7 +27,7 @@ public class BaseTest {
 
     public static WebDriverWait webDriverWait;
 
-    protected WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driverThreadLocal.get();
     }
 
@@ -43,6 +46,7 @@ public class BaseTest {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.setBrowserVersion(TestConfig.FIREFOX_VERSION);
             firefoxOptions.addArguments("--headless");
+            firefoxOptions.addArguments("--window-size=1280,800");
             driverThreadLocal.set(new FirefoxDriver(firefoxOptions));
         } else if (browser.equalsIgnoreCase(CHROME.getBrowserName())) {
             ChromeOptions optionsChrome = new ChromeOptions();
@@ -68,5 +72,10 @@ public class BaseTest {
     public void stopMethod() {
         getDriver().quit();
         log.info("Browser successfully quited.");
+    }
+
+    @Attachment(value = "Failure screenshot", type = "image/png")
+    public static byte[] captureScreenshot(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

@@ -9,6 +9,7 @@ import ssu.task.pages.PicturePage;
 import static org.testng.Assert.assertTrue;
 
 @Slf4j
+//@Listeners(AllureListener.class)
 public class PictureSearchResultsTest extends BaseTest {
 
     /* Тест 4

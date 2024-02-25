@@ -12,7 +12,19 @@ repositories {
     mavenCentral()
 }
 
+def aspectJVersion = "1.9.20.1"
+
+configurations {
+    agent {
+        canBeResolved = true
+        canBeConsumed = true
+    }
+}
+
 dependencies {
+    // Add aspectjweaver dependency
+    implementation "org.aspectj:aspectjweaver:$aspectJVersion"
+
     // libraries
     implementation libs.guava
     implementation libs.jackson.dataformat.yaml
@@ -27,6 +39,7 @@ dependencies {
     implementation libs.webdrivermanager;
 
     // testing
+    implementation libs.testng
     testImplementation libs.testng
     // reporting
     implementation libs.allure.testng

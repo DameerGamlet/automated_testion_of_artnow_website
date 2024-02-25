@@ -14,9 +14,9 @@ public abstract class BasePage {
     private static final int WAIT_FOR_ELEMENT_TIMEOUT_SECONDS = 100;
     private static final int DEFAULT_TIME_OF_SECONDS = 1;
 
-    private final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
-    protected WebDriver getDriver() {
+    public static WebDriver getDriver() {
         return driverThreadLocal.get();
     }
 
