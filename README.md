@@ -66,6 +66,10 @@ artnow.ru - купить картины современных художник�
 
 ## Результаты
 
+```bash
+gradle test
+```
+
 ### Результаты выполнения
 
 ![result_tests.png](resources%2Fimages%2Fresult_tests.png)
@@ -81,9 +85,10 @@ P.S. для демонстрации был убран параметр --headle
 ```bash
 > allure generate allure-results --clean
 Report successfully generated to allure-report
+
+> allure serve
 ```
 
 ![allure_report.png](resources%2Fimages%2Fallure_report.png)
 ![allure_suite.png](resources%2Fimages%2Fallure_suite.png)
-![allure_behavior.png](resources%2Fimages%2Fallure_behavior.png)
 ![allure_screenshots.png](resources%2Fimages%2Fallure_screenshots.png)
