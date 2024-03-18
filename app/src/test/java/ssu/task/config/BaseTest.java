@@ -45,12 +45,12 @@ public class BaseTest {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.setBrowserVersion(TestConfig.FIREFOX_VERSION);
-            firefoxOptions.addArguments("--headless");
+//            firefoxOptions.addArguments("--headless");
             firefoxOptions.addArguments("--window-size=1280,800");
             driverThreadLocal.set(new FirefoxDriver(firefoxOptions));
         } else if (browser.equalsIgnoreCase(CHROME.getBrowserName())) {
             ChromeOptions optionsChrome = new ChromeOptions();
-            optionsChrome.addArguments("--headless");
+//            optionsChrome.addArguments("--headless");
             optionsChrome.addArguments("--window-size=1280,800");
             optionsChrome.addArguments("--disable-gpu");
             optionsChrome.addArguments("--no-sandbox");

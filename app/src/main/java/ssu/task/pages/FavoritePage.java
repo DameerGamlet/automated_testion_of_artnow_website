@@ -34,7 +34,7 @@ public class FavoritePage extends BasePage {
 
         if (!favoritePictures.isEmpty()) {
             for (var picture : favoritePictures) {
-                if (picture.getText().contains(pictureName)) {
+                if (picture.getText().replace("\n", " ").contains(pictureName)) {
                     return true;
                 }
             }
